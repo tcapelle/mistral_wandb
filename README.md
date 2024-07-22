@@ -1,29 +1,30 @@
-# LLM Judge: Detecting Hallucinations in Language Models
+[![Weave](https://raw.githubusercontent.com/wandb/weave/master/docs/static/img/logo.svg)](https://wandb.ai/capecape/llm-judge-webinar/weave)
 
-This project demonstrates how to fine-tune and evaluate a Mistral AI language model to detect factual inconsistencies and hallucinations in text summaries.
+# LLM Judge: Detecting hallucinations in language models
 
-## Overview
+[![](static/eugene1.png)](https://eugeneyan.com/writing/finetuning/)
 
-The project consists of two main parts:
-1. Data preparation (`01_prepare_data.ipynb`)
-2. Model fine-tuning and evaluation (`02_finetune_and_eval.ipynb`)
+This project demonstrates how to fine-tune and evaluate a Mistral AI language model to detect factual inconsistencies and hallucinations in text summaries. It is based on [this amazing blog post]([amazing blog post from Eugene](https://eugeneyan.com/writing/finetuning/)) by Eugene Yan.
 
-## Features
+In this project, we will:
 
 - Prepares datasets from Factual Inconsistency Benchmark (FIB) and USB
 - Fine-tunes a Mistral 7B model for hallucination detection
 - Evaluates model performance using accuracy, F1 score, precision, and recall
 - Integrates with Weights & Biases for experiment tracking
 
-## Requirements
+## Weave
 
-- Python 3.11+
-- Libraries: mistralai, pandas, weave, scikit-learn, datasets
+In this project we make extensive use of [Weave](https://wandb.github.io/weave) to trace and organize our model evaluations.
+
+- You can get started with Weave and MistralAI by following the [quickstart guide](https://wandb.github.io/weave/guides/integrations/mistral)
 
 ## Usage
 
 1. Prepare the data:
    - Run `01_prepare_data.ipynb` to process and format the datasets
+
+   > The dataset is also available in the `data` folder, so you may skip this notebook.
 
 2. Fine-tune and evaluate the model:
    - Run `02_finetune_and_eval.ipynb` to:
@@ -31,15 +32,23 @@ The project consists of two main parts:
      - Fine-tune a Mistral 7B model
      - Evaluate the fine-tuned model
 
-## Key Components
-
-- `MistralModel`: Wrapper for Mistral AI API calls
-- `Evaluation`: Custom evaluation pipeline using Weave
-- `BinaryMetrics`: Scorer for binary classification metrics
-
 ## Results
 
 The notebook demonstrates improvements in hallucination detection after fine-tuning, with detailed metrics and comparisons between model versions.
+
+All the results and evaluation are logged to [this Weave Project](https://wandb.ai/capecape/llm-judge-webinar/weave)
+
+![](static/eval_7b.png)
+
+The finetuning process is logged to Weights & Biases as well, living together on the [same project](https://wandb.ai/capecape/llm-judge-webinar?nw=nwusercapecape) as the model evals.
+
+![](static/ft_dashboard.png)
+
+## Docs
+
+- Weights & Biases: https://wandb.ai/
+- Mistral finetuning docs: https://docs.mistral.ai/capabilities/finetuning/
+- Tracing with W&B Weave: https://wandb.me/weave
 
 ## Notes
 
